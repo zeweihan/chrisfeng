@@ -30,6 +30,7 @@ if [ -f "venv/bin/activate" ]; then
 elif [ -f ".venv/bin/activate" ]; then
     source .venv/bin/activate
 fi
+pip install --upgrade pip
 pip install -r requirements.txt
 # 确保数据库文件存在
 python3 -c "import database; database.init_db()"
