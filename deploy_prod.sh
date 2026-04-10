@@ -43,18 +43,22 @@ fi
 pm2 delete hr-backend 2>/dev/null
 pm2 delete hr-frontend 2>/dev/null
 
-# 启动后端 (如果服务器没装 uvicorn 全局，可换成绝对路径或 python -m uvicorn)
+# 启动后端 (指定虚拟环境中的 python 路径以避免找不到包)
 cd backend
-if [ -f "venv/bin/activate" ]; then
-    source venv/bin/activate
-elif [ -f ".venv/bin/activate" ]; then
-    source .venv/bin/activate
-fi
 
-if command -v uvicorn &> /dev/null; then
-    pm2 start uvicorn --name "hr-backend" -- main:app --host 127.0.0.1 --port 9169
+if [ -f "venv/bin/uvicorn" ]; then
+    pm2 start ./venv/bin/uvicorn --name "hr-backend" -- main:app --host 127.0.0.1 --port 9169
+elif [ -f ".venv/bin/uvicorn" ]; then
+    pm2 start ./.venv/bin/uvicorn --name "hr-backend" -- main:app --host 127.0.0.1 --port 9169
 else
-    pm2 start python3 --name "hr-backend" -- -m uvicorn main:app --host 127.0.0.1 --port 9169
+    # 万一都没有，尝试用虚拟环境下的 python 运行模块
+    if [ -f "venv/bin/python" ]; then
+        pm2 start ./venv/bin/python --name "hr-backend" -- -m uvicorn main:app --host 127.0.0.1 --port 9169
+    elif [ -f ".venv/bin/python" ]; then
+        pm2 start ./.venv/bin/python --name "hr-backend" -- -m uvicorn main:app --host 127.0.0.1 --port 9169
+    else
+        pm2 start python3 --name "hr-backend" -- -m uvicorn main:app --host 127.0.0.1 --port 9169
+    fi
 fi
 cd ..
 
