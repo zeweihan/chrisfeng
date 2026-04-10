@@ -18,8 +18,18 @@ export default function Login() {
       const res = await axios.post('/api/auth/login', { username, password });
       localStorage.setItem('token', res.data.access_token);
       navigate('/');
-    } catch (err) {
-      setError('用户名或密码错误');
+    } catch (err: any) {
+      if (err.response) {
+        if (err.response.status === 502) {
+          setError('后端服务未启动 (502 Bad Gateway)，请检查服务器');
+        } else if (err.response.status === 401) {
+          setError('用户名或密码错误');
+        } else {
+          setError(`服务器错误 (${err.response.status})`);
+        }
+      } else {
+        setError('网络连接失败，请检查网络或后端服务');
+      }
     } finally {
       setLoading(false);
     }
