@@ -4,6 +4,12 @@ source ~/.zshrc 2>/dev/null
 
 echo "🚀 开始部署 HR Report 生产环境..."
 
+# 0. 拉取最新代码
+echo "--> 0/3 拉取最新代码..."
+git fetch --all
+git reset --hard origin/main
+git pull origin main || echo "⚠️ 代码拉取可能遇到警告，但将继续执行部署。"
+
 # 1. 前端打包
 echo "--> 1/3 构建前端资源..."
 cd frontend
