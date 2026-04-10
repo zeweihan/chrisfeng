@@ -28,6 +28,10 @@ async def call_llm(
     
     if provider == "google":
         model_str = model_str.replace("google/", "")
+        
+        if not settings.GEMINI_API_KEY:
+            raise Exception("Google API (Gemini) key is not configured. Please check your .env file on the server.")
+            
         url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_str}:generateContent?key={settings.GEMINI_API_KEY[:8]}..."
         _log(f"    Google API URL: {url}")
         
@@ -82,6 +86,10 @@ async def call_llm(
             api_key = settings.KIMI_API_KEY
             if model_str == "moonshot-v1-32k" or model_str == "kimi-k2.5":
                 model_str = "kimi-k2.5"
+
+        if not api_key:
+            raise Exception(f"{provider.title()} API key is not configured. Please check your .env file on the server.")
+
 
         _log(f"    API URL: {url}")
         _log(f"    Model: {model_str}")
