@@ -17,7 +17,7 @@ export default function Dashboard() {
 
   const fetchReports = async () => {
     try {
-      const res = await axios.get('http://localhost:9169/api/reports/list');
+      const res = await axios.get('/api/reports/list');
       setReports(res.data);
     } catch (err) {
       console.error(err);
@@ -33,7 +33,7 @@ export default function Dashboard() {
   const deleteReport = async (id: number) => {
     if (!confirm('确定删除该报告吗？')) return;
     try {
-      await axios.delete(`http://localhost:9169/api/reports/${id}`);
+      await axios.delete(`/api/reports/${id}`);
       fetchReports();
     } catch (err) {
       console.error(err);

@@ -16,7 +16,7 @@ export default function Admin() {
   useEffect(() => {
     const fetchConfigs = async () => {
       try {
-        const res = await axios.get('http://localhost:9169/api/admin/configs');
+        const res = await axios.get('/api/admin/configs');
         setConfigs(res.data);
       } catch (err) {
         console.error(err);
@@ -34,7 +34,7 @@ export default function Admin() {
   const handleSave = async (item: ConfigItem) => {
     setSaving(true);
     try {
-      await axios.put(`http://localhost:9169/api/admin/configs`, { configs: [{ key: item.key, value: item.value }] });
+      await axios.put(`/api/admin/configs`, { configs: [{ key: item.key, value: item.value }] });
       alert('保存成功');
     } catch (err) {
       alert('保存失败');

@@ -47,7 +47,7 @@ export default function Upload() {
     formData.append('file_type', type);
     if (password) formData.append('password', password);
     
-    const res = await axios.post('http://localhost:9169/api/files/upload', formData);
+    const res = await axios.post('/api/files/upload', formData);
     return res.data.id;
   };
 
@@ -75,7 +75,7 @@ export default function Upload() {
 
       // Use fetch + SSE stream instead of axios to keep connection alive via heartbeat
       console.log('[SSE] Starting generate request:', { provider, model });
-      const response = await fetch('http://localhost:9169/api/reports/generate', {
+      const response = await fetch('/api/reports/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

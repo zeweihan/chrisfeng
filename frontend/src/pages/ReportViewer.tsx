@@ -12,7 +12,7 @@ export default function ReportViewer() {
   useEffect(() => {
     const fetchReport = async () => {
       try {
-        const res = await axios.get(`http://localhost:9169/api/reports/${id}`);
+        const res = await axios.get(`/api/reports/${id}`);
         setHtmlContent(res.data.html_content);
       } catch (err) {
         console.error(err);
@@ -34,7 +34,7 @@ export default function ReportViewer() {
     try {
       const updatedDoc = iframeRef.current.contentDocument?.documentElement.outerHTML;
       if (!updatedDoc) return;
-      await axios.put(`http://localhost:9169/api/reports/${id}`, {
+      await axios.put(`/api/reports/${id}`, {
         html_content: '<!DOCTYPE html>\n' + updatedDoc
       });
       alert('保存修改成功！');
