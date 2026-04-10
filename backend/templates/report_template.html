@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-bg: rgba(255, 255, 255, 0.65);
+        }
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%); min-height: 100vh; color: #1e293b; }
+        .glass-card { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.6); transition: all 0.3s; }
+        .glass-card:hover { background: rgba(255, 255, 255, 0.85); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); }
+        .glass-dark { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border-right: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-link.active { background: linear-gradient(135deg, #0ea5e9, #2563eb); color: white; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
+        [contenteditable]:hover { background: rgba(0,0,0,0.03); outline: 1px dashed #94a3b8; border-radius: 4px; cursor: text; }
+        [contenteditable]:focus { outline: 2px solid #3b82f6; background: #fff; }
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            @page {
+                margin: 10mm;
+            }
+            .nav-sidebar, .menu-toggle, .back-to-top { display: none !important; }
+            .main-content { margin-left: 0 !important; width: 100% !important; padding: 0 !important; }
+            .glass-card { page-break-inside: avoid; }
+            section { page-break-inside: avoid; }
+            .page-break { page-break-after: always; }
+        }
+        /* Color classes */
+        .c-blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: #3b82f6; }
+        .c-green { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: #10b981; }
+        .c-amber { background: linear-gradient(135deg, #fef3c7, #fde68a); color: #f59e0b; }
+        .c-red { background: linear-gradient(135deg, #fee2e2, #fecaca); color: #ef4444; }
+        .c-purple { background: linear-gradient(135deg, #e9d5ff, #ddd6fe); color: #8b5cf6; }
+        .c-cyan { background: linear-gradient(135deg, #cffafe, #a5f3fc); color: #06b6d4; }
+        .t-positive { background: rgba(16, 185, 129, 0.12); color: #10b981; }
+        .t-negative { background: rgba(239, 68, 68, 0.12); color: #ef4444; }
+        .t-neutral { background: rgba(148, 163, 184, 0.12); color: #64748b; }
+        .t-warning { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
+    </style>
+</head>
+<body class="flex">
+
+    <!-- Main Content -->
+    <main class="main-content w-full min-h-screen">
+        <header class="relative px-8 md:px-12 pt-20 pb-12 overflow-hidden border-b border-slate-200/50">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5"></div>
+            <div class="relative z-10 max-w-6xl mx-auto">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-indigo-100 text-indigo-600 text-xs font-bold mb-6 tracking-wide shadow-sm" contenteditable="true">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                    {{ period }}
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight" contenteditable="true">{{ title }}</h1>
+                <p class="text-slate-500" contenteditable="true">生成时间: {{ generated_date }} | 全自动深度分析与脱敏保护</p>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto pb-24">
+            <!-- Executive Summary -->
+            {% if analysis.executive_summary %}
+            <section class="p-8 md:p-12" id="executive-summary">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">Executive Summary</h2>
+                        <p class="text-slate-500 text-sm mt-1">核心指标与关键洞察</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for card in analysis.executive_summary.get('cards', []) %}
+                    <div class="glass-card rounded-2xl p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-10 h-10 rounded-xl flex items-center justify-center c-{{ card.color | default('blue') }}">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider" contenteditable="true">{{ card.title }}</div>
+                        </div>
+                        <div class="text-3xl font-extrabold text-slate-800 mb-2 tracking-tight" contenteditable="true">{{ card.value }}</div>
+                        <div class="text-sm text-slate-600 leading-relaxed" contenteditable="true">{{ card.desc }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+
+            <!-- Dynamic Sections -->
+            {% for sec in sections %}
+            {% set sec_data = analysis[sec.id] %}
+            {% if sec_data and sec_data.get('kpis') %}
+            <section class="p-8 md:p-12 border-t border-slate-200/50" id="{{ sec.id }}">
+                <div class="flex items-start gap-5 mb-10">
+                    <div class="w-14 h-14 bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl flex items-center justify-center font-bold text-xl text-white shadow-lg shadow-slate-500/20 shrink-0">
+                        {{ sec.num }}
+                    </div>
+                    <div>
+                        <h2 class="text-2xl lg:text-3xl font-bold text-slate-800 mb-2" contenteditable="true">{{ sec.title }}</h2>
+                    </div>
+                </div>
+
+                <!-- KPIs -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+                    {% for kpi in sec_data.get('kpis', []) %}
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r 
+                            {% if kpi.type == 'positive' %}from-emerald-400 to-emerald-500
+                            {% elif kpi.type == 'negative' %}from-red-400 to-red-500
+                            {% elif kpi.type == 'warning' %}from-amber-400 to-amber-500
+                            {% else %}from-slate-400 to-slate-500{% endif %}">
+                        </div>
+                        <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3" contenteditable="true">{{ kpi.label }}</div>
+                        <div class="text-3xl font-extrabold text-slate-800 mb-2 tracking-tight" contenteditable="true">{{ kpi.value }}</div>
+                        <div class="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full t-{{ kpi.type | default('neutral') }}" contenteditable="true">
+                            {{ kpi.change }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Insights box -->
+                {% if sec_data.get('insights') %}
+                <div class="bg-gradient-to-br from-amber-50/80 to-yellow-50/80 border border-amber-200/60 rounded-2xl p-8 mb-10 relative">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-11 h-11 bg-gradient-to-br from-amber-400 to-orange-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-amber-500/30">
+                            <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-lg font-bold text-amber-900">Key Insights 专家洞察</div>
+                    </div>
+                    <ul class="flex flex-col gap-3">
+                        {% for insight in sec_data.get('insights', []) %}
+                        <li class="bg-white/90 backdrop-blur-md rounded-xl p-4 text-sm text-slate-700 leading-relaxed border-l-4 border-amber-400 shadow-sm" contenteditable="true">
+                            {{ insight | safe }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- Warnings -->
+                {% if sec_data.get('warning_texts') %}
+                {% for warn in sec_data.warning_texts %}
+                <div class="flex items-start gap-4 p-6 rounded-2xl mb-6 
+                    {% if warn.level == 'danger' %}bg-gradient-to-br from-red-50 to-rose-50 border border-red-200
+                    {% else %}bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-200{% endif %}">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 
+                        {% if warn.level == 'danger' %}bg-red-100 text-red-500
+                        {% else %}bg-amber-100 text-amber-500{% endif %}">
+                        <i data-lucide="alert-triangle" class="w-6 h-6"></i>
+                    </div>
+                    <div class="flex-1">
+                        <div class="font-bold text-sm mb-1 {% if warn.level == 'danger' %}text-red-900{% else %}text-amber-900{% endif %}" contenteditable="true">{{ warn.title }}</div>
+                        <div class="text-sm leading-relaxed {% if warn.level == 'danger' %}text-red-700{% else %}text-amber-700{% endif %}" contenteditable="true">{{ warn.desc }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
+            </section>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+        
+        <footer class="p-10 border-t border-slate-200 text-center text-slate-500 text-sm">
+            <p class="mb-2" contenteditable="true">AI 智能脱敏分析报告 | HR Dashboard</p>
+            <p class="text-xs text-slate-400" contenteditable="true">请核对数据与洞察并调整后导出PDF。</p>
+        </footer>
+    </main>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

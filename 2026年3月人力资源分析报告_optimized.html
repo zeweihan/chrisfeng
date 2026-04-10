@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年3月人力资源分析报告</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-900: #0f172a; --primary-800: #1e293b; --primary-700: #334155; --primary-600: #475569;
+            --primary-500: #64748b; --primary-400: #94a3b8; --primary-300: #cbd5e1; --primary-200: #e2e8f0;
+            --primary-100: #f1f5f9; --primary-50: #f8fafc;
+            --accent-600: #0891b2; --accent-500: #06b6d4; --accent-400: #22d3ee;
+            --success-500: #10b981; --success-400: #34d399;
+            --warning-500: #f59e0b; --warning-400: #fbbf24;
+            --danger-500: #ef4444; --danger-400: #f87171;
+            --info-500: #3b82f6; --info-400: #60a5fa;
+            --radius-xl: 1.25rem; --radius-lg: 1rem;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', 'Noto Sans SC', sans-serif; background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 50%, #f1f5f9 100%); min-height: 100vh; color: var(--primary-800); line-height: 1.6; }
+        
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); }
+        .glass-dark { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card { background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.6); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8); transition: all 0.3s; }
+        .glass-card:hover { background: rgba(255, 255, 255, 0.8); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9); }
+
+        .icon { width: 20px; height: 20px; flex-shrink: 0; }
+        .icon-lg { width: 24px; height: 24px; }
+        .icon-xl { width: 32px; height: 32px; }
+        
+        .nav-sidebar { position: fixed; left: 0; top: 0; width: 280px; height: 100vh; padding: 1.5rem; overflow-y: auto; z-index: 100; }
+        .nav-brand { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; margin-bottom: 2rem; border-radius: var(--radius-lg); background: rgba(255,255,255,0.1); }
+        .nav-brand-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--accent-400), var(--accent-600)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; }
+        .nav-brand-text { color: white; font-weight: 700; font-size: 14px; line-height: 1.4; }
+        .nav-section { margin-bottom: 1.5rem; }
+        .nav-section-title { color: var(--primary-400); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 0.75rem; padding-left: 0.75rem; }
+        .nav-link { display: flex; align-items: center; gap: 0.75rem; padding: 0.875rem 1rem; color: var(--primary-300); text-decoration: none; font-size: 13px; font-weight: 500; border-radius: var(--radius-lg); transition: all 0.2s; margin-bottom: 0.25rem; }
+        .nav-link:hover { background: rgba(255,255,255,0.1); color: white; }
+        .nav-link.active { background: linear-gradient(135deg, var(--accent-500), var(--accent-600)); color: white; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3); }
+        .nav-link-number { width: 26px; height: 26px; background: rgba(255,255,255,0.15); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+        .menu-toggle { display: none; position: fixed; top: 1rem; left: 1rem; z-index: 101; width: 48px; height: 48px; border: none; border-radius: var(--radius-lg); color: white; cursor: pointer; }
+        
+        .main-content { margin-left: 280px; min-height: 100vh; }
+        
+        .header { padding: 5rem 3rem; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%); }
+        .header-content { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .header-tag { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border-radius: 9999px; font-size: 12px; font-weight: 600; color: var(--accent-600); margin-bottom: 1.5rem; }
+        .header h1 { font-size: 48px; font-weight: 700; color: var(--primary-900); margin-bottom: 0.75rem; }
+        
+        .exec-summary { padding: 2.5rem 3rem; }
+        .exec-summary-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+        .exec-summary-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--accent-400), var(--accent-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 8px 24px rgba(6, 182, 212, 0.25); }
+        .exec-summary-title { font-size: 22px; font-weight: 700; color: var(--primary-800); }
+        .exec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .exec-card { padding: 1.5rem; border-radius: var(--radius-xl); }
+        .exec-card-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .exec-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .exec-card-icon.blue { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: var(--info-500); }
+        .exec-card-icon.green { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: var(--success-500); }
+        .exec-card-icon.amber { background: linear-gradient(135deg, #fef3c7, #fde68a); color: var(--warning-500); }
+        .exec-card-icon.red { background: linear-gradient(135deg, #fee2e2, #fecaca); color: var(--danger-500); }
+        .exec-card-icon.purple { background: linear-gradient(135deg, #e9d5ff, #ddd6fe); color: #8b5cf6; }
+        .exec-card-icon.cyan { background: linear-gradient(135deg, #cffafe, #a5f3fc); color: var(--accent-600); }
+        .exec-card-title { font-size: 12px; font-weight: 600; color: var(--primary-500); text-transform: uppercase; letter-spacing: 0.5px; }
+        .exec-card-value { font-size: 32px; font-weight: 700; color: var(--primary-800); margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .exec-card-desc { font-size: 13px; color: var(--primary-600); line-height: 1.6; }
+        
+        .section { padding: 3.5rem 3rem; max-width: 1200px; margin: 0 auto; }
+        .section-header { display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 2.5rem; }
+        .section-number { width: 60px; height: 60px; background: linear-gradient(135deg, var(--accent-400), var(--accent-600)); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; color: white; box-shadow: 0 8px 24px rgba(6, 182, 212, 0.25); flex-shrink: 0; }
+        .section-title { font-size: 30px; font-weight: 700; color: var(--primary-800); margin-bottom: 0.5rem; }
+        .section-desc { font-size: 16px; color: var(--primary-500); }
+        
+        .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2.5rem; }
+        .kpi-card { padding: 1.75rem; border-radius: var(--radius-xl); position: relative; overflow: hidden; }
+        .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+        .kpi-card.positive::before { background: linear-gradient(90deg, var(--success-400), var(--success-500)); }
+        .kpi-card.negative::before { background: linear-gradient(90deg, var(--danger-400), var(--danger-500)); }
+        .kpi-card.warning::before { background: linear-gradient(90deg, var(--warning-400), var(--warning-500)); }
+        .kpi-card.neutral::before { background: linear-gradient(90deg, var(--primary-400), var(--primary-500)); }
+        .kpi-card.info::before { background: linear-gradient(90deg, var(--info-400), var(--info-500)); }
+        .kpi-label { font-size: 12px; font-weight: 600; color: var(--primary-500); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; }
+        .kpi-value { font-size: 40px; font-weight: 700; color: var(--primary-800); margin-bottom: 0.5rem; letter-spacing: -1.5px; }
+        .kpi-change { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 13px; font-weight: 600; padding: 0.375rem 0.875rem; border-radius: 9999px; }
+        .kpi-change.positive { background: rgba(16, 185, 129, 0.12); color: var(--success-500); }
+        .kpi-change.negative { background: rgba(239, 68, 68, 0.12); color: var(--danger-500); }
+        .kpi-change.neutral { background: rgba(100, 116, 139, 0.12); color: var(--primary-600); }
+        
+        .findings-box { background: linear-gradient(135deg, rgba(254, 243, 199, 0.6) 0%, rgba(254, 252, 232, 0.8) 100%); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 2.5rem; border: 1px solid rgba(251, 191, 36, 0.3); position: relative; }
+        .findings-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.5), transparent); }
+        .findings-header { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.5rem; }
+        .findings-icon { width: 44px; height: 44px; background: linear-gradient(135deg, var(--warning-400), var(--warning-500)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25); }
+        .findings-title { font-size: 17px; font-weight: 700; color: #92400e; }
+        .findings-list { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; }
+        .findings-list li { padding: 1.125rem 1.25rem; background: rgba(255, 255, 255, 0.9); border-radius: var(--radius-lg); font-size: 14px; color: var(--primary-700); line-height: 1.7; border-left: 3px solid var(--warning-400); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+        .findings-list li strong { color: var(--primary-900); font-weight: 600; }
+        
+        .progress-section { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .progress-card { padding: 1.75rem; border-radius: var(--radius-xl); }
+        .progress-card-header { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid rgba(203, 213, 225, 0.5); }
+        .progress-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+        .progress-card-icon.warning { background: linear-gradient(135deg, #fef3c7, #fde68a); color: var(--warning-500); }
+        .progress-card-icon.success { background: linear-gradient(135deg, #d1fae5, #a7f3d0); color: var(--success-500); }
+        .progress-card-title { font-size: 16px; font-weight: 700; color: var(--primary-800); }
+        .progress-item { margin-bottom: 1.25rem; }
+        .progress-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 14px; }
+        .progress-label { color: var(--primary-600); font-weight: 500; }
+        .progress-value { font-weight: 700; color: var(--primary-800); }
+        .progress-bar { height: 10px; background: rgba(203, 213, 225, 0.5); border-radius: 9999px; overflow: hidden; }
+        .progress-fill { height: 100%; border-radius: 9999px; }
+        .progress-fill.normal { background: linear-gradient(90deg, var(--success-400), var(--success-500)); }
+        .progress-fill.warning { background: linear-gradient(90deg, var(--warning-400), var(--warning-500)); }
+        .progress-fill.danger { background: linear-gradient(90deg, var(--danger-400), var(--danger-500)); }
+        
+        .table-container { border-radius: var(--radius-xl); overflow: hidden; margin-bottom: 1.5rem; }
+        .table-header { padding: 1.25rem 1.5rem; background: rgba(241, 245, 249, 0.8); border-bottom: 1px solid rgba(203, 213, 225, 0.5); }
+        .table-title { font-size: 15px; font-weight: 700; color: var(--primary-800); display: flex; align-items: center; gap: 0.5rem; }
+        .table-wrapper { overflow-x: auto; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+        thead { background: linear-gradient(135deg, var(--primary-700), var(--primary-800)); }
+        th { color: rgba(255,255,255,0.95); font-weight: 600; padding: 1rem; text-align: center; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        td { padding: 1rem; text-align: center; color: var(--primary-600); border-bottom: 1px solid rgba(203, 213, 225, 0.4); transition: background 0.15s; }
+        tbody tr:hover td { background: rgba(6, 182, 212, 0.04); }
+        tbody tr:nth-child(even) { background: rgba(241, 245, 249, 0.5); }
+        td:first-child { font-weight: 600; color: var(--primary-800); text-align: left; }
+        tr.highlight { background: rgba(254, 226, 226, 0.6) !important; }
+        tr.highlight td:first-child { color: var(--danger-600); }
+        tr.total-row { background: linear-gradient(135deg, var(--primary-700), var(--primary-800)) !important; font-weight: 600; }
+        tr.total-row td { color: rgba(255,255,255,0.95); border-bottom: none; }
+        tr.total-row:hover td { background: linear-gradient(135deg, var(--primary-700), var(--primary-800)) !important; }
+        
+        .tag { display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.375rem 0.875rem; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+        .tag.success { background: rgba(16, 185, 129, 0.12); color: #065f46; }
+        .tag.warning { background: rgba(245, 158, 11, 0.12); color: #92400e; }
+        .tag.danger { background: rgba(239, 68, 68, 0.12); color: #991b1b; }
+        .tag.info { background: rgba(59, 130, 246, 0.12); color: #1e40af; }
+        
+        .alert { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border-radius: var(--radius-xl); margin-bottom: 1.5rem; }
+        .alert-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .alert-content { flex: 1; }
+        .alert-title { font-weight: 700; margin-bottom: 0.5rem; font-size: 15px; }
+        .alert-text { font-size: 14px; color: var(--primary-600); line-height: 1.7; }
+        
+        .alert-info { background: linear-gradient(135deg, rgba(219, 234, 254, 0.6), rgba(239, 246, 255, 0.8)); border: 1px solid rgba(59, 130, 246, 0.2); }
+        .alert-info .alert-icon { background: linear-gradient(135deg, #dbeafe, #bfdbfe); color: var(--info-500); }
+        .alert-info .alert-title { color: #1e40af; }
+        
+        .alert-warning { background: linear-gradient(135deg, rgba(254, 243, 199, 0.6), rgba(254, 252, 232, 0.8)); border: 1px solid rgba(245, 158, 11, 0.2); }
+        .alert-warning .alert-icon { background: linear-gradient(135deg, #fef3c7, #fde68a); color: var(--warning-500); }
+        .alert-warning .alert-title { color: #92400e; }
+        
+        .alert-danger { background: linear-gradient(135deg, rgba(254, 226, 226, 0.6), rgba(254, 242, 242, 0.8)); border: 1px solid rgba(239, 68, 68, 0.2); }
+        .alert-danger .alert-icon { background: linear-gradient(135deg, #fee2e2, #fecaca); color: var(--danger-500); }
+        .alert-danger .alert-title { color: #991b1b; }
+        
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+        .stat-card { padding: 1.25rem; border-radius: var(--radius-xl); border-left: 3px solid var(--accent-500); }
+        .stat-label { font-size: 12px; color: var(--primary-500); margin-bottom: 0.5rem; font-weight: 500; }
+        .stat-value { font-size: 18px; font-weight: 700; color: var(--primary-800); }
+        .stat-value span { font-size: 12px; font-weight: 400; color: var(--primary-400); }
+        
+        .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .col-card { padding: 1.75rem; border-radius: var(--radius-xl); }
+        .col-card-header { display: flex; align-items: center; gap: 0.875rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(203, 213, 225, 0.5); }
+        .col-card-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--accent-400), var(--accent-600)); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; }
+        .col-card-title { font-size: 16px; font-weight: 700; color: var(--primary-800); }
+        
+        .data-note { padding: 1rem 1.25rem; border-radius: var(--radius-lg); font-size: 12px; color: var(--primary-500); margin-top: 1.5rem; border-left: 3px solid var(--primary-300); background: rgba(241, 245, 249, 0.6); }
+        
+        .footer { padding: 2.5rem; text-align: center; color: var(--primary-500); font-size: 13px; margin-left: 280px; }
+        .footer p { margin-bottom: 0.5rem; }
+        .footer p:last-child { color: var(--primary-400); font-size: 11px; margin-bottom: 0; }
+        
+        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 52px; height: 52px; background: linear-gradient(135deg, var(--accent-400), var(--accent-600)); border: none; border-radius: 9999px; color: white; cursor: pointer; box-shadow: 0 8px 24px rgba(6, 182, 212, 0.35); transition: all 0.3s; opacity: 0; visibility: hidden; z-index: 99; display: flex; align-items: center; justify-content: center; }
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(6, 182, 212, 0.45); }
+        
+        @media (max-width: 1200px) {
+            .kpi-grid, .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .exec-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .nav-sidebar.open { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+            .menu-toggle { display: flex; align-items: center; justify-content: center; }
+            .header { padding: 5rem 1.5rem 3rem; }
+            .header h1 { font-size: 32px; }
+            .section { padding: 2.5rem 1.5rem; }
+            .kpi-grid, .exec-grid, .stats-grid, .progress-section, .two-col { grid-template-columns: 1fr; }
+            .section-header { flex-direction: column; gap: 1rem; }
+            .footer { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-toggle glass-dark" onclick="document.getElementById('navSidebar').classList.toggle('open')">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+
+    <nav class="nav-sidebar glass-dark" id="navSidebar">
+        <div class="nav-brand">
+            <div class="nav-brand-icon">
+                <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="nav-brand-text">人力资源分析报告</div>
+        </div>
+        <div class="nav-section">
+            <div class="nav-section-title">概览</div>
+            <a href="#executive-summary" class="nav-link active">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                高管摘要
+            </a>
+        </div>
+        <div class="nav-section">
+            <div class="nav-section-title">详细分析</div>
+            <a href="#section1" class="nav-link"><span class="nav-link-number">01</span>人力成本使用率</a>
+            <a href="#section2" class="nav-link"><span class="nav-link-number">02</span>入离职趋势</a>
+            <a href="#section3" class="nav-link"><span class="nav-link-number">03</span>入职部门分析</a>
+            <a href="#section4" class="nav-link"><span class="nav-link-number">04</span>竞对人才获取</a>
+            <a href="#section5" class="nav-link"><span class="nav-link-number">05</span>关键入职明细</a>
+            <a href="#section6" class="nav-link"><span class="nav-link-number">06</span>离职部门分析</a>
+            <a href="#section7" class="nav-link"><span class="nav-link-number">07</span>关键离职明细</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header class="header">
+            <div class="header-content">
+                <div class="header-tag glass">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    2026年Q1季度报告
+                </div>
+                <h1>2026年3月人力资源分析报告</h1>
+            </div>
+        </header>
+
+        <section class="exec-summary" id="executive-summary">
+            <div class="exec-summary-header">
+                <div class="exec-summary-icon">
+                    <svg class="icon-xl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <div>
+                    <div class="exec-summary-title">Executive Summary </div>
+                    <div style="font-size:14px;color:var(--primary-500);margin-top:4px">核心指标与关键洞察</div>
+                </div>
+            </div>
+            <div class="exec-grid">
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon blue">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        </div>
+                        <div class="exec-card-title">人力成本</div>
+                    </div>
+                    <div class="exec-card-value">23.32%</div>
+                    <div class="exec-card-desc">整体使用率略低于时间进度（25%），预算执行稳健；系统平台部、战略运营与数字化部需关注成本管控</div>
+                </div>
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon green">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <div class="exec-card-title">人才流动</div>
+                    </div>
+                    <div class="exec-card-value">+60人</div>
+                    <div class="exec-card-desc">Q1净增人数，入职91人，离职31人；人员净增长60人</div>
+                </div>
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon purple">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>
+                        </div>
+                        <div class="exec-card-title">人才质量</div>
+                    </div>
+                    <div class="exec-card-value">50.55%</div>
+                    <div class="exec-card-desc">新员工硕士及以上学历占比，较在职员工高18.4个百分点；平均年龄降低3.98岁，团队结构持续优化</div>
+                </div>
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon cyan">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
+                        <div class="exec-card-title">竞对获取</div>
+                    </div>
+                    <div class="exec-card-value">12.09%</div>
+                    <div class="exec-card-desc">来自竞争对手的新员工占比；EMEA大区表现突出（33.33%），海康为主要来源（3人，27%）</div>
+                </div>
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon amber">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <div class="exec-card-title">离职风险</div>
+                    </div>
+                    <div class="exec-card-value">2.91%</div>
+                    <div class="exec-card-desc">整体离职率处于行业健康水平；财法中心（14.29%）及全球市场营销部（10.34%）需重点关注</div>
+                </div>
+                <div class="exec-card glass-card">
+                    <div class="exec-card-header">
+                        <div class="exec-card-icon red">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                        </div>
+                        <div class="exec-card-title">关键人才</div>
+                    </div>
+                    <div class="exec-card-value">3人</div>
+                    <div class="exec-card-desc">关键员工离职，含1名L8级技术专家；离职原因均为职业发展，需关注关键人员的职业发展诉求</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section1">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <div>
+                    <h2 class="section-title">人力成本使用率与编制分析</h2>
+                    <p class="section-desc">预算执行进度 | 编制配置效率 | 成本风险预警</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">人力成本使用率</div>
+                    <div class="kpi-value">23.32%</div>
+                    <div class="kpi-change neutral">时间进度: 25%</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">滚动预测达成率</div>
+                    <div class="kpi-value">91.74%</div>
+                    <div class="kpi-change positive">预算可控</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">编制使用率</div>
+                    <div class="kpi-value">86.9%</div>
+                    <div class="kpi-change positive">HC: 1,408 | 在职: 1,224</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">编制余量</div>
+                    <div class="kpi-value">181人</div>
+                    <div class="kpi-change positive">招聘空间充足</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>预算执行稳健：</strong>整体人力成本使用率23.32%，略低于25%的时间进度，预算执行节奏合理</li>
+                    <li><strong>预算执行偏差较大部门：</strong>系统平台部（28.06%）因组织架构调整短期成本承压；战略运营与数字化部（26.85%）劳务费用偏高，建议优化外包资源配置</li>
+                    <li><strong>编制管理健康：</strong>整体编制使用率86.9%，余量181人，为业务扩张预留充足空间；系统平台部已超编15人，建议尽快完成组织架构的调整</li>
+                    <li><strong>国际化支撑充足：</strong>美洲、EMEA、亚太大区编制余量合计93人，为海外业务拓展提供了有力的人才储备支撑</li>
+                </ul>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-card glass-card">
+                    <div class="progress-card-header">
+                        <div class="progress-card-icon warning">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <div class="progress-card-title">成本使用关注部门</div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">系统平台部</span>
+                            <span class="progress-value" style="color:var(--danger-500)">28.06%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill danger" style="width:28.06%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">战略运营与数字化部</span>
+                            <span class="progress-value" style="color:var(--warning-500)">26.85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill warning" style="width:26.85%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">服务管理部</span>
+                            <span class="progress-value" style="color:var(--warning-500)">24.59%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill warning" style="width:24.59%"></div></div>
+                    </div>
+                </div>
+                <div class="progress-card glass-card">
+                    <div class="progress-card-header">
+                        <div class="progress-card-icon success">
+                            <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div class="progress-card-title">成本使用较低部门</div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">海外业务团队</span>
+                            <span class="progress-value" style="color:var(--success-500)">15.92%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill normal" style="width:15.92%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">财法中心</span>
+                            <span class="progress-value" style="color:var(--success-500)">18.35%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill normal" style="width:18.35%"></div></div>
+                    </div>
+                    <div class="progress-item">
+                        <div class="progress-header">
+                            <span class="progress-label">供应链管理部</span>
+                            <span class="progress-value" style="color:var(--success-500)">20.44%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill normal" style="width:20.44%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container glass-card">
+                <div class="table-header">
+                    <div class="table-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        部门人力成本与编制明细
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th rowspan="2">预算部门</th>
+                                <th colspan="2">截至3月底实际使用</th>
+                                <th rowspan="2">滚动预测</th>
+                                <th colspan="5">编制 vs 在职人数（截止3月底）</th>
+                            </tr>
+                            <tr>
+                                <th>人力成本合计</th>
+                                <th>使用进度</th>
+                                <th>2026编制</th>
+                                <th>在职人数<br>(不含G7)</th>
+                                <th>在职G7</th>
+                                <th>在职总人数<br>(G7按0.5计)</th>
+                                <th>编制余量</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>美洲大区</td><td>27,013,767.16</td><td>22.19%</td><td>81.76%</td><td>164</td><td>119</td><td>3</td><td>120.5</td><td style="color:var(--success-500)">43.5</td></tr>
+                            <tr><td>EMEA大区</td><td>15,689,635.30</td><td>22.89%</td><td>83.85%</td><td>114</td><td>85</td><td>3</td><td>86.5</td><td style="color:var(--success-500)">27.5</td></tr>
+                            <tr><td>亚太大区</td><td>12,930,384.59</td><td>22.07%</td><td>91.86%</td><td>138</td><td>115</td><td>2</td><td>116.0</td><td style="color:var(--success-500)">22.0</td></tr>
+                            <tr><td>海外业务团队</td><td>1,543,676.61</td><td>15.92%</td><td>64.61%</td><td>16</td><td>9</td><td>-</td><td>9.0</td><td style="color:var(--success-500)">7.0</td></tr>
+                            <tr><td>中国大区</td><td>12,130,413.85</td><td>22.80%</td><td>94.70%</td><td>142</td><td>121</td><td>6</td><td>124.0</td><td style="color:var(--success-500)">18.0</td></tr>
+                            <tr><td>产品部</td><td>15,830,298.99</td><td>23.69%</td><td>94.69%</td><td>168</td><td>155</td><td>-</td><td>155.0</td><td style="color:var(--success-500)">13.0</td></tr>
+                            <tr><td>机器人平台研发部</td><td>12,583,059.37</td><td>22.16%</td><td>90.73%</td><td>119</td><td>95</td><td>-</td><td>95.0</td><td style="color:var(--success-500)">24.0</td></tr>
+                            <tr class="highlight"><td>系统平台部</td><td>28,992,286.04</td><td style="color:var(--danger-500);font-weight:600">28.06%</td><td style="color:var(--danger-500);font-weight:600">111.48%</td><td>214</td><td style="color:var(--danger-500);font-weight:600">229</td><td>-</td><td style="color:var(--danger-500);font-weight:600">229.0</td><td style="color:var(--danger-500);font-weight:600">-15.0</td></tr>
+                            <tr><td>全球市场营销部</td><td>3,617,636.58</td><td>24.02%</td><td>96.45%</td><td>26</td><td>20</td><td>3</td><td>21.5</td><td style="color:var(--success-500)">4.5</td></tr>
+                            <tr><td>财法中心</td><td>3,031,202.66</td><td>18.35%</td><td>71.95%</td><td>36</td><td>28</td><td>-</td><td>28.0</td><td style="color:var(--success-500)">8.0</td></tr>
+                            <tr><td>服务管理部</td><td>6,093,743.04</td><td>24.59%</td><td>94.23%</td><td>83</td><td>71</td><td>-</td><td>71.0</td><td style="color:var(--success-500)">12.0</td></tr>
+                            <tr><td>供应链管理部</td><td>5,211,103.04</td><td>20.44%</td><td>86.50%</td><td>106</td><td>96</td><td>-</td><td>96.0</td><td style="color:var(--success-500)">10.0</td></tr>
+                            <tr><td>人力行政部</td><td>2,273,348.97</td><td>22.57%</td><td>92.96%</td><td>20</td><td>16</td><td>1</td><td>16.5</td><td style="color:var(--success-500)">3.5</td></tr>
+                            <tr><td>总裁办-EHS</td><td>167,397.93</td><td>22.89%</td><td>91.11%</td><td>2</td><td>2</td><td>-</td><td>2.0</td><td>-</td></tr>
+                            <tr><td>总裁办-战略运营与数字化部</td><td>2,112,546.33</td><td style="color:var(--warning-500);font-weight:600">26.85%</td><td>97.00%</td><td>27</td><td>25</td><td>-</td><td>25.0</td><td style="color:var(--success-500)">2.0</td></tr>
+                            <tr><td>总裁办-审计部</td><td>271,320.49</td><td>21.47%</td><td>97.84%</td><td>3</td><td>3</td><td>-</td><td>3.0</td><td>-</td></tr>
+                            <tr><td>总裁办-知识产权&政府事务部</td><td>846,619.92</td><td>22.47%</td><td>96.17%</td><td>8</td><td>8</td><td>-</td><td>8.0</td><td>-</td></tr>
+                            <tr><td>总裁办-信息技术和网络安全部</td><td>1,488,947.12</td><td>20.38%</td><td>81.45%</td><td>19</td><td>18</td><td>-</td><td>18.0</td><td style="color:var(--success-500)">1.0</td></tr>
+                            <tr class="total-row"><td>公司整体</td><td>152,613,952.41</td><td>23.32%</td><td>91.74%</td><td>1,408</td><td>1,218</td><td>18</td><td>1,224.0</td><td>181.0</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="data-note">
+                <strong>数据口径说明：</strong>人力成本（含正式+劳务）：①正式员工人力成本包括月薪、各类补贴、奖金、加班费、公司负担"五险一金"等；②劳务费包含外包人员、实习生、残疾人费用，其中外包人员成本包括每月账单中工资、社保公积金、服务费等所有费用，剔除税费。
+            </div>
+        </section>
+
+        <section class="section" id="section2">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <div>
+                    <h2 class="section-title">入离职趋势概览</h2>
+                    <p class="section-desc">人才流动动态 | 净增趋势 | 季度对比分析</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">Q1累计入职</div>
+                    <div class="kpi-value">91人</div>
+                    <div class="kpi-change positive">3月单月: 39人</div>
+                </div>
+                <div class="kpi-card glass-card negative">
+                    <div class="kpi-label">Q1累计离职</div>
+                    <div class="kpi-value">31人</div>
+                    <div class="kpi-change negative">3月单月: 13人</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">净增人数</div>
+                    <div class="kpi-value">+60人</div>
+                    <div class="kpi-change positive">入职/离职比: 2.9:1</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">人员流动率</div>
+                    <div class="kpi-value">5.0%</div>
+                    <div class="kpi-change neutral">(入职+离职)/在职</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>招聘节奏稳健：</strong>3月入职39人，较2月增长105%，主要受春节后招聘旺季影响；预计Q2将保持月均35-40人的招聘节奏，支撑业务扩张需求</li>
+                    <li><strong>离职趋势需关注：</strong>3月离职13人，呈逐月上升趋势（7→11→13），需持续观察是否为季节性波动或行业人才竞争加剧信号</li>
+                    <li><strong>人才净流入健康：</strong>净增60人，入离比2.9:1，人才储备稳健增长，为业务发展提供了充足的人力资源保障</li>
+                    <li><strong>流动结构合理：</strong>主动离职占87%，被动离职占13%，人员结构优化以自然流动为主，符合组织健康发展规律</li>
+                </ul>
+            </div>
+
+            <div class="table-container glass-card">
+                <div class="table-header">
+                    <div class="table-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        Q1月度入离职明细
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>指标</th>
+                                <th>2026年1月</th>
+                                <th>2026年2月</th>
+                                <th>2026年3月</th>
+                                <th>Q1合计</th>
+                                <th>月均</th>
+                                <th>趋势</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="color:var(--info-500);font-weight:600">入职人数</td>
+                                <td style="color:var(--info-500);font-weight:600">33</td>
+                                <td style="color:var(--info-500);font-weight:600">19</td>
+                                <td style="color:var(--info-500);font-weight:600">39</td>
+                                <td style="color:var(--info-500);font-weight:600">91</td>
+                                <td>30.3</td>
+                                <td><span class="tag success">加速</span></td>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--danger-500);font-weight:600">离职人数</td>
+                                <td style="color:var(--danger-500);font-weight:600">7</td>
+                                <td style="color:var(--danger-500);font-weight:600">11</td>
+                                <td style="color:var(--danger-500);font-weight:600">13</td>
+                                <td style="color:var(--danger-500);font-weight:600">31</td>
+                                <td>10.3</td>
+                                <td><span class="tag warning">上升</span></td>
+                            </tr>
+                            <tr style="background:var(--success-50)">
+                                <td style="color:var(--success-500);font-weight:600">净增人数</td>
+                                <td style="color:var(--success-500);font-weight:600">+26</td>
+                                <td style="color:var(--success-500);font-weight:600">+8</td>
+                                <td style="color:var(--success-500);font-weight:600">+26</td>
+                                <td style="color:var(--success-500);font-weight:600">+60</td>
+                                <td>+20.0</td>
+                                <td><span class="tag success">健康</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <div class="alert-icon">
+                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">趋势研判</div>
+                    <div class="alert-text">
+                        2月受春节影响入职人数较低（19人），3月恢复至39人，预计Q2将保持月均35-40人的招聘节奏。离职人数逐月上升（7→11→13），需关注关键人才的稳定情况。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section3">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <div>
+                    <h2 class="section-title">入职分析 - 部门维度</h2>
+                    <p class="section-desc">年轻化成效 | ROI提升 | 专业化程度 | 薪酬竞争力</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">新员工平均年龄</div>
+                    <div class="kpi-value">30.36岁</div>
+                    <div class="kpi-change positive">较在职低3.98岁</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">平均TTC涨幅</div>
+                    <div class="kpi-value">+18.92%</div>
+                    <div class="kpi-change positive">ROI提升显著</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">平均Base涨幅</div>
+                    <div class="kpi-value">+16.85%</div>
+                    <div class="kpi-change positive">薪酬竞争力强</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">硕士及以上占比</div>
+                    <div class="kpi-value">50.55%</div>
+                    <div class="kpi-change positive">较在职高18.4%</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>年轻化战略成效显著：</strong>除海外业务团队外，所有部门新员工平均年龄均低于在职人员，整体降低3.98岁，团队活力与创新能力持续提升</li>
+                    <li><strong>薪酬竞争力支撑高质量招聘：</strong>平均TTC涨幅18.92%、Base涨幅16.85%，在整体薪酬涨幅可控的情况下吸引优质人才</li>
+                    <li><strong>人才专业化程度提升：</strong>新员工硕士占比50.55%，远高于在职32.11%，研发及专业岗位人才素质显著增强</li>
+                    <li><strong>海外大区招聘活跃：</strong>美洲大区入职16人、亚太大区12人、EMEA大区9人，海外业务人才布局加速推进</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info">
+                <div class="alert-icon">
+                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">薪酬涨幅说明</div>
+                    <div class="alert-text">
+                        <strong>高涨幅场景：</strong>城市迁移（生活成本差异补偿）、竞对挖角/Counter Offer、稀缺岗位（日本市场、解决方案专家）、从国央企跳槽（原薪酬体系差异）。<br><br>
+                        <strong>负涨幅场景：</strong>原雇主浮动奖金占比高导致Base较低、候选人主动降薪加入（看好公司发展前景）、教培等行业转型人员。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section4">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <div>
+                    <h2 class="section-title">竞对人才获取分析</h2>
+                    <p class="section-desc">行业人才竞争 | 竞对来源分布 | 核心岗位挖角</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">竞对入职人数</div>
+                    <div class="kpi-value">11人</div>
+                    <div class="kpi-change">占入职总数12.09%</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">竞对公司数量</div>
+                    <div class="kpi-value">8家</div>
+                    <div class="kpi-change positive">海康、KION、京东等</div>
+                </div>
+                <div class="kpi-card glass-card warning">
+                    <div class="kpi-label">竞对占比最高部门</div>
+                    <div class="kpi-value">EMEA大区</div>
+                    <div class="kpi-change warning">33.33%新员工来自竞对</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">主要竞对来源</div>
+                    <div class="kpi-value">海康</div>
+                    <div class="kpi-change">3人（27%）</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>竞对获取能力初显：</strong>12%新员工来自竞对</li>
+                    <li><strong>EMEA大区竞对获取突出：</strong>33%新员工来自竞对（KION、Quicktron）</li>
+                    <li><strong>海康为主要竞对来源：</strong>3人来自海康（亚太大区2人、中国大区1人）</li>
+                    <li><strong>研发岗位竞对渗透较低：</strong>产品部、机器人平台研发部竞对占比仅10-11%，整体来看技术人才引进渠道需多元化</li>
+                </ul>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-label">海康威视</div>
+                    <div class="stat-value">3人 <span>（亚太大区、中国大区）</span></div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-label">Quicktron</div>
+                    <div class="stat-value">2人 <span>（EMEA大区）</span></div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-label">KION</div>
+                    <div class="stat-value">1人 <span>（EMEA大区）</span></div>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-label">京东物流</div>
+                    <div class="stat-value">1人 <span>（中国大区）</span></div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning">
+                <div class="alert-icon">
+                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">竞争策略建议</div>
+                    <div class="alert-text">
+                        EMEA大区竞对获取最多（33%）。建议美洲大区可以考虑加强竞对人才mapping。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section5">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <div>
+                    <h2 class="section-title">关键入职人员明细</h2>
+                    <p class="section-desc">L8及以上高管入职 | 核心人才引进 | 组织能力补强</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">L8及以上入职</div>
+                    <div class="kpi-value">6人</div>
+                    <div class="kpi-change positive">占入职总数6.6%</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">L10高管</div>
+                    <div class="kpi-value">2人</div>
+                    <div class="kpi-change">Head of Sales/Service</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">L9中层</div>
+                    <div class="kpi-value">2人</div>
+                    <div class="kpi-change">营销/销售管理</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">平均年龄分布</div>
+                    <div class="kpi-value">31-39岁</div>
+                    <div class="kpi-change">4人（67%）| 40岁+ 2人</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>海外大区组织能力补强：</strong>6名关键入职中3人归属海外大区（EMEA 2人、亚太1人），国际化管理梯队建设加速推进</li>
+                    <li><strong>销售体系高管引入：</strong>Head of Sales（SEA）、Head of Service（EMEA）、Sales Management（EMEA）到岗，海外销售体系逐步完善</li>
+                    <li><strong>人才背景多元化：</strong>涵盖海柔创新、京东物流、思杰系统等知名企业，带来不同行业最佳实践与资源网络</li>
+                    <li><strong>学历层次较高：</strong>硕士4人（67%），本科2人，专业背景涵盖机械电子、企业管理、系统工程等核心领域</li>
+                </ul>
+            </div>
+
+            <div class="table-container glass-card">
+                <div class="table-header">
+                    <div class="table-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        L8及以上关键入职人员
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>部门</th>
+                                <th>职位</th>
+                                <th>级别</th>
+                                <th>工作地点</th>
+                                <th>入职时间</th>
+                                <th>年龄</th>
+                                <th>学历</th>
+                                <th>曾服务企业</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Markus Ruck</strong></td>
+                                <td>EMEA大区</td>
+                                <td>Head of Service</td>
+                                <td><span class="tag info">L10</span></td>
+                                <td>德国</td>
+                                <td>2026-03-16</td>
+                                <td>31-39岁</td>
+                                <td>硕士</td>
+                                <td>Azmeri Cold Logistics</td>
+                            </tr>
+                            <tr>
+                                <td><strong>骆康</strong></td>
+                                <td>亚太大区</td>
+                                <td>Head of Sales, SEA</td>
+                                <td><span class="tag info">L10</span></td>
+                                <td>杭州</td>
+                                <td>2026-03-02</td>
+                                <td>31-39岁</td>
+                                <td>硕士</td>
+                                <td>海柔创新科技</td>
+                            </tr>
+                            <tr>
+                                <td><strong>郑大亮</strong></td>
+                                <td>中国大区</td>
+                                <td>渠道赋能</td>
+                                <td><span class="tag success">L8</span></td>
+                                <td>武汉</td>
+                                <td>2026-03-11</td>
+                                <td>31-39岁</td>
+                                <td>硕士</td>
+                                <td>京东物流</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section6">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <div>
+                    <h2 class="section-title">离职分析 - 部门维度</h2>
+                    <p class="section-desc">离职率分布 | 主动被动分析 | 风险预警 | 人才保留洞察</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">累计离职人数</div>
+                    <div class="kpi-value">31人</div>
+                    <div class="kpi-change">Q1月均10.3人</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">整体离职率</div>
+                    <div class="kpi-value">2.91%</div>
+                    <div class="kpi-change positive">行业健康水平</div>
+                </div>
+                <div class="kpi-card glass-card positive">
+                    <div class="kpi-label">主动离职占比</div>
+                    <div class="kpi-value">87.1%</div>
+                    <div class="kpi-change positive">自然流动为主</div>
+                </div>
+                <div class="kpi-card glass-card warning">
+                    <div class="kpi-label">被动离职占比</div>
+                    <div class="kpi-value">12.9%</div>
+                    <div class="kpi-change warning">4人结构优化</div>
+                </div>
+            </div>
+
+            <div class="findings-box">
+                <div class="findings-header">
+                    <div class="findings-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    </div>
+                    <div class="findings-title">Key Insights 核心洞察</div>
+                </div>
+                <ul class="findings-list">
+                    <li><strong>整体离职率健康：</strong>2.91%处于行业健康水平（科技行业年均10-15%），人才保留状况良好，组织稳定性较强</li>
+                    <li><strong>财法中心需重点关注：</strong>离职率14.29%为全公司最高，4人离职均为财务/法务人员</li>
+                    <li><strong>全球营销部稳定性待提升：</strong>离职率10.34%，部门规模较小（29人）导致波动敏感</li>
+                    <li><strong>离职人员年轻化趋势：</strong>主动离职平均年龄32.07岁，低于在职1.69岁，年轻员工流动性相对较高，需关注</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-danger">
+                <div class="alert-icon">
+                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">高风险部门预警</div>
+                    <div class="alert-text">
+                        <strong>财法中心：</strong>离职率14.29%（4人），远超公司平均水平。<br><br>
+                        <strong>全球市场营销部：</strong>离职率10.34%（3人），部门规模小导致波动敏感。
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container glass-card">
+                <div class="table-header">
+                    <div class="table-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        各部门离职率分析
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>部门</th>
+                                <th>主动离职人数</th>
+                                <th>主动离职率</th>
+                                <th>被动离职人数</th>
+                                <th>离职总人数</th>
+                                <th>总离职率</th>
+                                <th>风险等级</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>美洲大区</td><td>4</td><td>3.70%</td><td>-</td><td>4</td><td>3.70%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>EMEA大区</td><td>3</td><td>3.75%</td><td>-</td><td>3</td><td>3.75%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>亚太大区</td><td>4</td><td>3.64%</td><td>1</td><td>5</td><td>4.55%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>中国大区</td><td>4</td><td>3.31%</td><td>-</td><td>4</td><td>3.31%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>产品部</td><td>2</td><td>1.61%</td><td>-</td><td>2</td><td>1.61%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>机器人平台研发部</td><td>2</td><td>2.33%</td><td>1</td><td>3</td><td>3.49%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr class="highlight"><td>全球市场营销部</td><td>2</td><td>6.90%</td><td>1</td><td>3</td><td style="color:var(--warning-500);font-weight:600">10.34%</td><td><span class="tag warning">关注</span></td></tr>
+                            <tr class="highlight"><td>财法中心</td><td>4</td><td style="color:var(--danger-500);font-weight:600">14.29%</td><td>-</td><td>4</td><td style="color:var(--danger-500);font-weight:600">14.29%</td><td><span class="tag danger">高风险</span></td></tr>
+                            <tr><td>供应链管理部</td><td>1</td><td>2.17%</td><td>1</td><td>2</td><td>4.35%</td><td><span class="tag success">正常</span></td></tr>
+                            <tr><td>人力行政部</td><td>1</td><td>6.25%</td><td>-</td><td>1</td><td>6.25%</td><td><span class="tag warning">关注</span></td></tr>
+                            <tr class="total-row"><td>公司整体</td><td>27</td><td>2.54%</td><td>4</td><td>31</td><td>2.91%</td><td><span class="tag success">健康</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="section7">
+            <div class="section-header">
+                <div class="section-number">07</div>
+                <div>
+                    <h2 class="section-title">关键离职人员明细</h2>
+                    <p class="section-desc">核心人才流失 | 离职原因分析 | 保留策略建议</p>
+                </div>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card negative">
+                    <div class="kpi-label">关键人员离职</div>
+                    <div class="kpi-value">3人</div>
+                    <div class="kpi-change negative">均为主动离职</div>
+                </div>
+                <div class="kpi-card glass-card warning">
+                    <div class="kpi-label">L8及以上</div>
+                    <div class="kpi-value">1人</div>
+                    <div class="kpi-change warning">机器人平台研发部</div>
+                </div>
+                <div class="kpi-card glass-card negative">
+                    <div class="kpi-label">绩效B+及以上</div>
+                    <div class="kpi-value">2人</div>
+                    <div class="kpi-change negative">高绩效人才流失</div>
+                </div>
+                <div class="kpi-card glass-card neutral">
+                    <div class="kpi-label">离职原因</div>
+                    <div class="kpi-value">职业发展</div>
+                    <div class="kpi-change">100%一致</div>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <div class="alert-icon">
+                    <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <div class="alert-content">
+                    <div class="alert-title">人才竞争风险提示</div>
+                    <div class="alert-text">
+                        <strong>人形机器人赛道挖角加剧：</strong>刘宴诚（L8算法工程师）离职加入人形机器人公司，显示该赛道对AI/机器人人才的激烈争夺。<br><br>
+                        <strong>建议：</strong>对机器人平台研发部核心技术人员进行风险评估，识别高流失风险人员，前置保留措施；同时加快公司具身智能业务布局，为员工提供更广阔的发展空间。
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container glass-card">
+                <div class="table-header">
+                    <div class="table-title">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        关键离职人员明细
+                    </div>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>姓名</th>
+                                <th>部门</th>
+                                <th>职位</th>
+                                <th>级别</th>
+                                <th>最近绩效</th>
+                                <th>司龄</th>
+                                <th>离职类型</th>
+                                <th>离职原因</th>
+                                <th>风险等级</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>George Niu</strong></td>
+                                <td>美洲大区</td>
+                                <td>System Consulting</td>
+                                <td><span class="tag success">L5</span></td>
+                                <td><span class="tag info">B+</span></td>
+                                <td>4年10个月</td>
+                                <td>主动</td>
+                                <td>职业发展</td>
+                                <td><span class="tag warning">中</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>张俊鹏</strong></td>
+                                <td>中国大区</td>
+                                <td>项目经理</td>
+                                <td><span class="tag success">L5</span></td>
+                                <td><span class="tag success">A</span></td>
+                                <td>4年8个月</td>
+                                <td>主动</td>
+                                <td>职业发展</td>
+                                <td><span class="tag warning">中</span></td>
+                            </tr>
+                            <tr class="highlight">
+                                <td><strong>刘宴诚</strong></td>
+                                <td>机器人平台研发部</td>
+                                <td>机器人算法工程师</td>
+                                <td><span class="tag info">L8</span></td>
+                                <td><span class="tag success">B</span></td>
+                                <td>1年2个月</td>
+                                <td>主动</td>
+                                <td>去人形公司、想做新东西</td>
+                                <td><span class="tag danger">高</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>2026年3月人力资源分析报告 | 集团人力资源部</p>
+        <p>报告生成时间：2026年4月8日 | 数据截止日期：2026年3月31日</p>
+        <p>注：公司整体分析不含具身智能部 | 本报告仅供高管决策参考</p>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <svg class="icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            document.getElementById('backToTop').classList.toggle('visible', window.pageYOffset > 300);
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('navSidebar').classList.remove('open');
+            });
+        });
+        window.addEventListener('scroll', function() {
+            let current = '';
+            document.querySelectorAll('section[id]').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 200) current = section.getAttribute('id');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
+             
