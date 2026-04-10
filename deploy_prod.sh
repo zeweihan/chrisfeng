@@ -21,8 +21,8 @@ cd ..
 echo "--> 2/3 安装后端依赖..."
 cd backend
 if [ ! -d "venv" ] && [ ! -d ".venv" ]; then
-    echo "未发现虚拟环境，正在创建 venv..."
-    python3 -m venv venv
+    echo "未发现虚拟环境，正在使用 Python 3.11.9 创建 venv..."
+    /www/server/pyporject_evn/versions/3.11.9/bin/python3 -m venv venv
 fi
 
 if [ -f "venv/bin/activate" ]; then
