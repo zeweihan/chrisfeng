@@ -20,6 +20,11 @@ cd ..
 # 2. 安装后端环境
 echo "--> 2/3 安装后端依赖..."
 cd backend
+if [ ! -d "venv" ] && [ ! -d ".venv" ]; then
+    echo "未发现虚拟环境，正在创建 venv..."
+    python3 -m venv venv
+fi
+
 if [ -f "venv/bin/activate" ]; then
     source venv/bin/activate
 elif [ -f ".venv/bin/activate" ]; then
